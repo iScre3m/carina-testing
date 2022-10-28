@@ -3,8 +3,8 @@ package com.qaprosoft.carina.demo;
 import com.qaprosoft.apitools.validation.JsonCompareKeywords;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.core.foundation.api.APIMethodPoller;
-import com.qaprosoft.carina.demo.api.GetAlbumMethod;
-import com.qaprosoft.carina.demo.api.PostAlbumMethod;
+import com.qaprosoft.carina.demo.api.getAlbumMethod;
+import com.qaprosoft.carina.demo.api.postAlbumMethod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.skyscreamer.jsonassert.JSONCompareMode;
@@ -19,7 +19,7 @@ public class APIAlbumTest implements IAbstractTest {
     @Test
     public void testCreateAlbum() {
         LOGGER.info("test post Album");
-        PostAlbumMethod api = new PostAlbumMethod();
+        postAlbumMethod api = new postAlbumMethod();
         api.setProperties("api/albums/album.properties");
         AtomicInteger counter = new AtomicInteger(0);
         api.callAPIWithRetry()
@@ -35,7 +35,7 @@ public class APIAlbumTest implements IAbstractTest {
     @Test(enabled = false)
     public void testCreateAlbumMissingField() {
         LOGGER.info("test create Album with missing field");
-        PostAlbumMethod api = new PostAlbumMethod();
+        postAlbumMethod api = new postAlbumMethod();
         api.setProperties("api/albums/album.properties");
         api.getProperties().remove("title");
         api.callAPIExpectSuccess();
@@ -45,7 +45,7 @@ public class APIAlbumTest implements IAbstractTest {
     @Test
     public void testGetAlbum() {
         LOGGER.info("test get Album");
-        GetAlbumMethod getAlbumMethod = new GetAlbumMethod();
+        getAlbumMethod getAlbumMethod = new getAlbumMethod();
         getAlbumMethod.callAPIExpectSuccess();
         getAlbumMethod.validateResponse(JSONCompareMode.STRICT, JsonCompareKeywords.ARRAY_CONTAINS.getKey());
         getAlbumMethod.validateResponseAgainstSchema("api/albums/_get/rs.schema");
