@@ -32,7 +32,7 @@ public class APIAlbumTest implements IAbstractTest {
         api.validateResponse();
     }
 
-    @Test
+    @Test(enabled = false)
     public void testCreateAlbumMissingField() {
         LOGGER.info("test create Album with missing field");
         PostAlbumMethod api = new PostAlbumMethod();

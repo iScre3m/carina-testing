@@ -3,6 +3,5 @@
     "userId": 1,
     "id": 1,
     <#if title??>"title": "${title}"</#if>
-  },
-  "id": 11
+  }
 }
