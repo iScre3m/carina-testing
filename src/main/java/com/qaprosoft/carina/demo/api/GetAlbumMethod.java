@@ -11,8 +11,8 @@ import com.qaprosoft.carina.core.foundation.utils.Configuration;
 @Endpoint(url = "${base_url}/albums", methodType = HttpMethodType.GET)
 @ResponseTemplatePath(path = "api/albums/_get/rs.json")
 @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
-public class getAlbumMethod extends AbstractApiMethodV2 {
-    public getAlbumMethod() {
-        replaceUrlPlaceholder("base_url", Configuration.getEnvArg("https://jsonplaceholder.typicode.com"));
+public class GetAlbumMethod extends AbstractApiMethodV2 {
+    public GetAlbumMethod() {
+        replaceUrlPlaceholder("base_url", Configuration.getEnvArg("api_url"));
     }
 }
